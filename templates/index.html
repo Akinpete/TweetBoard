@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/index.css')}}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">TweetBoards</div>
+            <nav>
+                <a href="{{url_for('about')}}">About</a>
+                <a href="#">How It Works</a>
+                <a href="#">Roadmap</a>
+            </nav>
+            <div class="auth-buttons">
+                <a href="{{url_for('login')}}" class="sign-in">Login</a>
+                <a href="{{url_for('register')}}" class="sign-in">Register</a>
+                <!-- <button class="sign-in">Sign In</button>                 -->
+                <button class="get-started">Get Browser Extension</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="main-section">
+            <div class="container">
+                <h1>Introducing TweetBox—the ultimate tool for <br>organizing and displaying your Twitter bookmarks.</h1>
+                <p>Perfect for content creators, marketers, and <br>anyone who loves to keep their favorite tweets in order.</p>
+                <div class="cta-buttons">
+                    
+                    <!-- <button class="get-started-main">Get Started</button> -->
+                    <a href="{{url_for('register')}}" class="get-started-main">Get Started</a>
+                    <a href="{{url_for('login')}}" class="watch-trailer">Login</a>
+                    <!-- <button class="watch-trailer">Login</button> -->
+                </div>
+            </div>
+        </section>
+
+        <section class="main-section">
+            <div class="container">
+                <h2>AI-Powered Editing</h2>
+                <p>Leverage the power of artificial intelligence to streamline your video editing process. Capsule's AI suggests cuts, transitions, and enhancements, saving you hours of work.</p>
+                <div class="cta-buttons">
+                    <button class="get-started-main">Try AI Editing</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="main-section">
+            <div class="container">
+                <h2>Collaborative Workflows</h2>
+                <p>Seamlessly collaborate with your team in real-time. Share projects, leave comments, and get approvals all within Capsule's intuitive interface.</p>
+                <div class="cta-buttons">
+                    <button class="get-started-main">Start Collaborating</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+</body>
+</html>

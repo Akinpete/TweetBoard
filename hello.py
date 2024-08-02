@@ -428,24 +428,6 @@ class Users(db.Model, UserMixin):
     
 #Create a Blog Post Model
 class Posts(db.Model):
-    id=db.Column(db.Integer, primary_key=True)
-    tweet_id=db.Column(db.String(100))
-    date_posted=db.Column(db.DateTime, default=datetime.utcnow)
-    type_tweet = db.Column(db.String(10), nullable = False)
-    pfp_link = db.Column(db.Text, nullable=False)
-    video_link=db.Column(db.Text, nullable=True)
-    image_link=db.Column(db.Text, nullable=True)
-    tweet_text=db.Column(db.Text, nullable=False)
-    bold_name=db.Column(db.String(50), nullable=False )
-    at_name=db.Column(db.String(50), nullable=False)
-    tweet_link=db.Column(db.Text, nullable=False)
-    # Foreign Key to refer to Primary Key of the user
-    poster_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-    # Association table foreign key
-    tags = db.relationship('Tags', secondary = 'post_tags', back_populates = 'posts')
-
-#Create a Tag db Model
-class Tags(db.Model):
     """
     Represents a bookmarked tweet.
 
@@ -464,6 +446,25 @@ class Tags(db.Model):
     - poster_id: Foreign key linking to the user who posted.
     - tags: Relationship to associate the post with multiple tags.
     """
+    id=db.Column(db.Integer, primary_key=True)
+    tweet_id=db.Column(db.String(100))
+    date_posted=db.Column(db.DateTime, default=datetime.utcnow)
+    type_tweet = db.Column(db.String(10), nullable = False)
+    pfp_link = db.Column(db.Text, nullable=False)
+    video_link=db.Column(db.Text, nullable=True)
+    image_link=db.Column(db.Text, nullable=True)
+    tweet_text=db.Column(db.Text, nullable=False)
+    bold_name=db.Column(db.String(50), nullable=False )
+    at_name=db.Column(db.String(50), nullable=False)
+    tweet_link=db.Column(db.Text, nullable=False)
+    # Foreign Key to refer to Primary Key of the user
+    poster_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    # Association table foreign key
+    tags = db.relationship('Tags', secondary = 'post_tags', back_populates = 'posts')
+
+#Create a Tag db Model
+class Tags(db.Model):
+    
     id=db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), nullable=False)
     # Association table foreign key
